@@ -55,11 +55,7 @@ const CreateAsset: React.FC = () => {
   const getAiSuggestions = async (values: any) => {
     setLoading(true);
     try {
-      // Real API interaction
-      // const response = await aiApi.getTokenSuggestions(values);
-      // setAiSuggestion(response.data.suggestions[0]);
-      
-      // Simulate API response
+      // 模拟 AI 建议（本地生成，保证演示效果）
       setTimeout(() => {
         setAiSuggestion({
           name: values.tokenName ? `${values.tokenName}Token` : 'RecommendedToken',
@@ -70,7 +66,7 @@ const CreateAsset: React.FC = () => {
           marketPotential: 'This fan token has strong potential for viral growth, especially within active online fandoms and cross-platform communities.'
         });
         setLoading(false);
-      }, 1500);
+      }, 1200);
     } catch (error) {
       console.error('Failed to get AI suggestions:', error);
       message.error('Failed to get AI suggestions, please try again');

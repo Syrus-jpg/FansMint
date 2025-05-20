@@ -258,20 +258,19 @@ const HomePage: React.FC = () => {
                   }}></div>
                   <div style={{ 
                     position: 'absolute',
-                    top: '50%',
+                    top: '38%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                     zIndex: 1
                   }}>
                     <FMLogo style={{ fontSize: 120, color: 'white' }} />
                   </div>
-                  
-                  {/* Add text content below the logo */}
                   <div style={{
                     position: 'absolute',
-                    bottom: '15%',
+                    top: '65%',
                     left: 0,
                     right: 0,
+                    transform: 'translateY(-50%)',
                     textAlign: 'center',
                     zIndex: 1
                   }}>
