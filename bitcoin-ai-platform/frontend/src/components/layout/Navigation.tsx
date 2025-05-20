@@ -78,7 +78,7 @@ const Navigation: React.FC<NavigationProps> = ({
       key: 'github',
       icon: <GithubOutlined />,
       label: 'GitHub',
-      onClick: () => window.open('https://github.com/yourusername/bitcoin-ai-platform', '_blank')
+      onClick: () => window.open('https://github.com/Syrus-jpg/FansMint', '_blank')
     }
   ];
 
