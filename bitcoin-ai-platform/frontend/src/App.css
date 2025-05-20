@@ -1,0 +1,578 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  background: #0d0f19;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 恢复更深、更漂亮的星空背景 */
+.ant-layout {
+  background: linear-gradient(135deg, #13102e 0%, #221345 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- COSMIC BACKGROUND EFFECTS --- */
+
+/* Main starfield effect */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-color: #13102e; /* 恢复更深的背景色 */
+  overflow: hidden;
+}
+
+/* Nebula glow */
+.nebula {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 30% 20%, rgba(91, 33, 182, 0.4) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(124, 58, 237, 0.35) 0%, rgba(0, 0, 0, 0) 50%),
+    radial-gradient(ellipse at 20% 65%, rgba(139, 92, 246, 0.3) 0%, rgba(0, 0, 0, 0) 65%),
+    radial-gradient(ellipse at 70% 70%, rgba(109, 40, 217, 0.25) 0%, rgba(0, 0, 0, 0) 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: -9;
+  opacity: 0.9;
+  pointer-events: none;
+  filter: blur(50px);
+  animation: nebulaPulse 30s ease-in-out infinite alternate, nebulaRotate 180s linear infinite;
+}
+
+/* Small stars */
+.stars-small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10px 10px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 30px 50px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 30px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 70px 70px, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 90px 50px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 110px 90px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 130px 110px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 150px 150px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 170px 170px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 190px 190px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 210px 210px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 230px 230px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 250px 250px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 270px 270px, rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 290px 290px, rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0));
+  background-size: 300px 300px;
+  z-index: -8;
+  opacity: 0.9;
+  animation: starsAnimation 180s linear infinite, starsOpacity 10s ease-in-out infinite alternate;
+}
+
+/* Medium stars */
+.stars-medium {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 210px 60px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 80px 250px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(2.5px 2.5px at 150px 320px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(2.5px 2.5px at 340px 380px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 410px 280px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(2.5px 2.5px at 320px 120px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+  background-size: 500px 500px;
+  z-index: -7;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.7));
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+
+/* Large bright stars */
+.stars-large {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(3.5px 3.5px at 180px 100px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(3px 3px at 400px 200px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(4px 4px at 300px 300px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(3.5px 3.5px at 100px 400px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(4px 4px at 450px 350px, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(3.5px 3.5px at 250px 150px, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0));
+  background-size: 600px 600px;
+  z-index: -6;
+  opacity: 1; /* 增加亮度 */
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8)); /* 添加发光效果 */
+  animation: brightStarsTwinkle 6s ease-in-out infinite alternate;
+}
+
+/* Distant galaxies effect */
+.distant-galaxies {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+  background-image: 
+    radial-gradient(80px 40px at 70% 40%, rgba(139, 92, 246, 0.3), rgba(0, 0, 0, 0)),
+    radial-gradient(60px 60px at 20% 60%, rgba(124, 58, 237, 0.25), rgba(0, 0, 0, 0)),
+    radial-gradient(100px 50px at 50% 20%, rgba(91, 33, 182, 0.3), rgba(0, 0, 0, 0)),
+    radial-gradient(70px 30px at 30% 30%, rgba(167, 139, 250, 0.2), rgba(0, 0, 0, 0)),
+    radial-gradient(50px 25px at 80% 70%, rgba(124, 58, 237, 0.2), rgba(0, 0, 0, 0));
+  background-size: 1200px 1200px;
+  opacity: 0.7;
+  filter: blur(6px);
+  animation: galaxyPulse 20s ease-in-out infinite alternate, galaxyRotate 120s linear infinite;
+}
+
+/* Vortex effect in center */
+.cosmic-vortex {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(ellipse at center, rgba(91, 33, 182, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -5;
+  overflow: hidden;
+}
+
+.cosmic-vortex:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(30px);
+  animation: pulsate 8s ease-in-out infinite alternate;
+}
+
+/* Cosmic dust particles */
+.cosmic-dust {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -4;
+  pointer-events: none;
+}
+
+.dust-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+  animation: floatParticle 20s linear infinite;
+}
+
+/* 流星效果 */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  transform: rotate(-45deg);
+  animation: shootingStar 8s linear infinite;
+  opacity: 0;
+  z-index: -3;
+}
+
+/* Stellar glows */
+.glow-orb {
+  position: absolute;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.6) 0%, rgba(124, 58, 237, 0.3) 30%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px) drop-shadow(0 0 40px rgba(139, 92, 246, 0.4));
+  animation: float 10s ease-in-out infinite, pulsateGlow 8s ease-in-out infinite;
+  z-index: -4;
+}
+
+/* Light flares */
+.light-flare {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: -3;
+}
+
+/* --- ANIMATIONS --- */
+
+/* Make stars field rotate */
+@keyframes starsAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Stars opacity animation */
+@keyframes starsOpacity {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Galaxy rotation animation */
+@keyframes galaxyRotate {
+  0% {
+    transform: rotate(0deg);
+    background-position: 0 0;
+  }
+  100% {
+    transform: rotate(360deg);
+    background-position: 1200px 1200px;
+  }
+}
+
+/* Twinkling effect for stars */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Twinkling effect for bright stars */
+@keyframes brightStarsTwinkle {
+  0%, 100% {
+    opacity: 0.7;
+    filter: blur(0.5px) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0px) drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  }
+}
+
+/* Nebula pulsing effect */
+@keyframes nebulaPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+/* Cosmic vortex rotation */
+@keyframes rotateVortex {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Pulsating glow */
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Floating animation for glow orbs */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(0) translateX(10px);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px);
+  }
+}
+
+/* Galaxy pulse animation */
+@keyframes galaxyPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* Nebula rotation animation */
+@keyframes nebulaRotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Particle floating animation */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Shooting star animation */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-200px) translateY(-200px) rotate(-45deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) translateY(calc(100vh + 200px)) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+/* Glow orb pulse animation */
+@keyframes pulsateGlow {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Bouncing animation for scroll indicator */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 增强标题发光动画效果 */
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.8), 0 0 50px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Page specific styles */
+.home-page {
+  position: relative;
+}
+
+.hero-section {
+  position: relative;
+}
+
+/* 移除了黑色渐变遮罩，保持星空背景的视觉连续性 */
+.hero-section:before {
+  display: none;
+}
+
+/* Component overrides for theme */
+
+/* Main title with glow */
+.main-title {
+  animation: titleGlow 4s ease-in-out infinite;
+}
+
+/* Card styling */
+.ant-card {
+  background: rgba(23, 25, 35, 0.6) !important;
+  border: 1px solid rgba(107, 70, 193, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(91, 33, 182, 0.2) !important;
+  border: 1px solid rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Button styling */
+.ant-btn-primary {
+  background: linear-gradient(to right, #6b46c1, #7c3aed) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(107, 70, 193, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(123, 58, 237, 0.5) !important;
+  background: linear-gradient(to right, #7c3aed, #8b5cf6) !important;
+}
+
+/* Typography styling */
+.ant-typography {
+  color: #fff !important;
+}
+
+.ant-card-meta-title {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.ant-card-meta-description {
+  color: #a0aec0 !important;
+}
+
+/* Menu styling */
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: rgba(139, 92, 246, 0.1) !important;
+}
+
+/* Scrollbar styling - 使用更紫色的主题 */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(44, 31, 95, 0.3); /* 更紫色的背景 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 92, 246, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(139, 92, 246, 0.7);
+}
+
+/* Glass effect for cards & containers */
+.glass-effect {
+  background: rgba(30, 32, 42, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(107, 70, 193, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effects for interactive elements */
+.interactive-item {
+  transition: all 0.3s ease;
+}
+
+.interactive-item:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* Enhanced focus states */
+.ant-input:focus,
+.ant-select-focused .ant-select-selector {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+}
+

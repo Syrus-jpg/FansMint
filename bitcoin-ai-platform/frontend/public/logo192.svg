@@ -1,0 +1,19 @@
+<svg width="192" height="192" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background circle -->
+  <circle cx="50" cy="50" r="50" fill="black" />
+  
+  <!-- White border circle -->
+  <circle cx="50" cy="50" r="42" stroke="white" strokeWidth="3" fill="none" />
+  
+  <!-- FM letters - White -->
+  <g transform="translate(-2, 2)">
+    <!-- F letter - Normal shape -->
+    <path d="M30 30H50V38H37V44H48V52H37V61H30V30Z" fill="white" />
+    
+    <!-- M letter - Two connected sharp triangles -->
+    <path d="M53 30H60V61H53V30Z" fill="white" />
+    <path d="M60 30L70 45L60 61V30Z" fill="white" />
+    <path d="M70 30H77V61H70V30Z" fill="white" />
+    <path d="M70 30L60 45L70 61V30Z" fill="white" />
+  </g>
+</svg> 
